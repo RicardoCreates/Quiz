@@ -17,4 +17,5 @@ const StyledFooter = styled.div`
   background: #303030;
   width: 100vw;
   color: white;
+  box-shadow: -1px -1px 10px #888888;
 `;

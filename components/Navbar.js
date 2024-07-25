@@ -9,9 +9,14 @@ export default function Navbar() {
 }
 
 const StyledNavbar = styled.div`
+  top: 0;
+  left: 0;
+  background-color: #fdfefe;
+  width: 100vw;
+  box-shadow: 2px 5px 30px lightgrey;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #303030;
-  color: white;
+  z-index: 20;
+  min-width: 300px;
 `;
