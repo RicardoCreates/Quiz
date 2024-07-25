@@ -9,8 +9,10 @@ export default function Navbar() {
 }
 
 const StyledNavbar = styled.div`
+  position: fixed;
   top: 0;
   left: 0;
+  height: 3.8rem;
   background-color: #fdfefe;
   width: 100vw;
   box-shadow: 2px 5px 30px lightgrey;
