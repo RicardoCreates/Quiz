@@ -3,7 +3,7 @@ import styled from "styled-components";
 export default function Navbar() {
   return (
     <StyledNavbar>
-      <h1>Navbar</h1>
+      <h1>Quiz</h1>
     </StyledNavbar>
   );
 }
