@@ -1,11 +1,11 @@
-import Card from "@/components/card";
+import Card from "@/components/Card";
 import styled from "styled-components";
 
 export default function Quiz() {
   return (
     <>
       <StyledDiv>
-        <SytledHeadline>Quiz</SytledHeadline>
+        <SytledHeadline>Questions</SytledHeadline>
       </StyledDiv>
       <Card />
     </>
