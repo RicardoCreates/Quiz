@@ -24,12 +24,12 @@ export default function Start() {
         {answerVisibility.answer1 ? "Hide Answer" : "Show Answer"}
       </Button>
       {answerVisibility.answer1 && (
-        <div>
+        <Answer>
           <h2>
             The Quiz is about answering some generell knolege Questions, just
             for fun 😊
           </h2>
-        </div>
+        </Answer>
       )}
       <StyledQuiz>
         <h1>How does the Quiz work ?</h1>
@@ -38,12 +38,12 @@ export default function Start() {
         {answerVisibility.answer2 ? "Hide Answer" : "Show Answer"}
       </Button>
       {answerVisibility.answer2 && (
-        <div>
+        <Answer>
           <h2>
             Read the Question, if you dont know the answer or want to check,
             click on Show Answer
           </h2>
-        </div>
+        </Answer>
       )}
       <StyledQuiz>
         <h1>Enjoy</h1>
@@ -52,9 +52,9 @@ export default function Start() {
         {answerVisibility.answer3 ? "Hide Answer" : "Show Answer"}
       </Button>
       {answerVisibility.answer3 && (
-        <div>
+        <Answer>
           <h2>Enjoy the Quiz 😄</h2>
-        </div>
+        </Answer>
       )}
     </QuizContainer>
   );
@@ -92,4 +92,12 @@ const Button = styled.button`
   padding: 10px 20px;
   margin: 10px;
   box-shadow: -1px -1px 10px #888888;
+`;
+
+const Answer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
 `;
