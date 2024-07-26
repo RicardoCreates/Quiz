@@ -6,7 +6,7 @@ export default function Footer() {
     <>
       <StyledFooter>
         <StyledLink href="/"> Home </StyledLink>
-        <p>Footer</p>
+        <StyledLink href="/"> Favorites </StyledLink>
         <StyledLink href="/quiz"> Quiz </StyledLink>
       </StyledFooter>
     </>
@@ -24,9 +24,11 @@ const StyledFooter = styled.div`
   color: white;
   font-size: 1.5rem;
   box-shadow: -1px -1px 10px #888888;
+  height: 3.8rem;
 `;
 
 const StyledLink = styled(Link)`
   color: white;
   text-decoration: none;
+  font-size: 1.5rem;
 `;

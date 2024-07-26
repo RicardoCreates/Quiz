@@ -1,13 +1,13 @@
-import Card from "@/components/card";
+import Questions from "@/components/Questions";
 import styled from "styled-components";
 
 export default function Quiz() {
   return (
     <>
       <StyledDiv>
-        <SytledHeadline>Quiz</SytledHeadline>
+        <SytledHeadline>Questions</SytledHeadline>
       </StyledDiv>
-      <Card />
+      <Questions />
     </>
   );
 }
