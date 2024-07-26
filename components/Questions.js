@@ -114,5 +114,5 @@ const Question = styled.div`
   margin: 10px;
   gap: 50px;
   box-shadow: -1px -1px 10px #888888;
-  width: 80vh;
+  width: 60vw;
 `;
