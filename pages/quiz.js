@@ -1,4 +1,4 @@
-import Card from "/components/Card";
+import Questions from "@/components/Questions";
 import styled from "styled-components";
 
 export default function Quiz() {
@@ -7,7 +7,7 @@ export default function Quiz() {
       <StyledDiv>
         <SytledHeadline>Questions</SytledHeadline>
       </StyledDiv>
-      <Card />
+      <Questions />
     </>
   );
 }

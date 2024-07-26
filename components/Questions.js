@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 
-export default function Card() {
+export default function Questions() {
   const [answerVisibility, setIsAnswerVisibility] = useState({
     answer1: false,
     answer2: false,
