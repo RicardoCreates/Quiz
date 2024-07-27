@@ -6,7 +6,7 @@ export default function Footer() {
     <>
       <StyledFooter>
         <StyledLink href="/"> Home </StyledLink>
-        <StyledLink href="/"> Favorites </StyledLink>
+        <StyledLink href="/favorites"> Favorites </StyledLink>
         <StyledLink href="/quiz"> Quiz </StyledLink>
       </StyledFooter>
     </>
