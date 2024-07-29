@@ -5,9 +5,10 @@ export default function Favorites() {
     <StyledContainer>
       <StyledDiv>
         <h1>Favorites</h1>
-        
       </StyledDiv>
-      <h2>New Test</h2>
+      <StyledDiv>
+        <h2>New Test</h2>
+      </StyledDiv>
     </StyledContainer>
   );
 }
@@ -25,6 +26,7 @@ const StyledDiv = styled.div`
 
 const StyledContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 80px;
