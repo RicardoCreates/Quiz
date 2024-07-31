@@ -1,30 +1,48 @@
 import Navbar from "@/components/Navbar";
 import GlobalStyle from "../styles";
 import Footer from "@/components/Footer";
-import useLocalStorageState from "use-local-storage-state";
-
-const initalFavorite = Array(10).fill(false);
+import { useState } from "react";
 
 export default function App({ Component, pageProps }) {
-  const [favorites, setFavorites] = useLocalStorageState("favorites", {
-    defaultValue: initalFavorite,
+  const [answerVisibility, setIsAnswerVisibility] = useState({
+    answer1: false,
+    answer2: false,
+    answer3: false,
   });
 
-  function handleToggleFavorite(id) {
-    setFavorites(
-      favorites.map((favorite, index) => (index === id ? !favorite : favorite))
-    );
-  }
+  const [favorites, setFavorites] = useState({
+    question1: false,
+    question2: false,
+    question3: false,
+  });
+
+  const onToggleAnswerVisibility = (answerKey) => {
+    setIsAnswerVisibility((prevVisibility) => ({
+      ...prevVisibility,
+      [answerKey]: !prevVisibility[answerKey],
+    }));
+  };
+
+  const toggleFavorite = (questionKey) => {
+    setFavorites((prevFavorites) => ({
+      ...prevFavorites,
+      [questionKey]: !prevFavorites[questionKey],
+    }));
+  };
+
+  console.log("Favorites state:", favorites);
 
   return (
     <>
       <GlobalStyle />
+      <Navbar />
       <Component
         {...pageProps}
-        onToggleFavorite={handleToggleFavorite}
+        answerVisibility={answerVisibility}
+        onToggleAnswerVisibility={onToggleAnswerVisibility}
         favorites={favorites}
+        onToggleFavorite={toggleFavorite}
       />
-      <Navbar />
       <Footer />
     </>
   );

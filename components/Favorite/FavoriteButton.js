@@ -4,7 +4,7 @@ import styled from "styled-components";
 const likedHeart = <Heart height={30} width={30} fill="red" />;
 
 const unlikeHeart = (
-  <Heart height={30} width={30} fill="transparent" stroke="white" />
+  <Heart height={30} width={30} fill="transparent" stroke="black" />
 );
 
 export default function FavoriteButton({ favorite, onToggleFavorite }) {
