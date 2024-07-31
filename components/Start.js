@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import FavoriteButton from "./Favorite/FavoriteButton";
 
 export default function Start() {
   const [answerVisibility, setIsAnswerVisibility] = useState({

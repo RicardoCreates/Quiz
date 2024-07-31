@@ -1,18 +1,47 @@
 import Questions from "@/components/Questions";
 import styled from "styled-components";
 
-export default function Quiz() {
+export default function Quiz({
+  answerVisibility = {},
+  onToggleAnswerVisibility = () => {},
+  favorites = {},
+  onToggleFavorite = () => {},
+}) {
+  const questions = {
+    question1: {
+      question: "Frage 1",
+      text: "Was ist die Hauptstadt von Deutschland?",
+      answer: "Die Hauptstadt von Deutschland ist Berlin.",
+    },
+    question2: {
+      question: "Frage 2",
+      text: "Was ist die Hauptstadt von NRW?",
+      answer: "Die Hauptstadt von NRW ist Düsseldorf.",
+    },
+    question3: {
+      question: "Frage 3",
+      text: "Was ist die Hauptstadt von China?",
+      answer: "Die Hauptstadt von China ist Peking.",
+    },
+  };
+
   return (
     <>
-      <StyledDiv>
-        <SytledHeadline>Questions</SytledHeadline>
-      </StyledDiv>
-      <Questions />
+      <StyledHeader>
+        <StyledHeadline>Questions</StyledHeadline>
+      </StyledHeader>
+      <Questions
+        answerVisibility={answerVisibility}
+        onToggleAnswerVisibility={onToggleAnswerVisibility}
+        favorites={favorites}
+        onToggleFavorite={onToggleFavorite}
+        questions={questions}
+      />
     </>
   );
 }
 
-const StyledDiv = styled.div`
+const StyledHeader = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,7 +51,7 @@ const StyledDiv = styled.div`
   width: 100vw;
 `;
 
-const SytledHeadline = styled.h1`
+const StyledHeadline = styled.h1`
   display: flex;
   justify-content: center;
   align-items: center;

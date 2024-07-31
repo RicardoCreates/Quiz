@@ -1,68 +1,37 @@
 import styled from "styled-components";
-import { useState } from "react";
+import FavoriteButton from "./Favorite/FavoriteButton";
 
-export default function Questions() {
-  const [answerVisibility, setIsAnswerVisibility] = useState({
-    answer1: false,
-    answer2: false,
-    answer3: false,
-  });
-
-  const toggleAnswerVisibility = (answerKey) => {
-    setIsAnswerVisibility((prevVisibility) => ({
-      ...prevVisibility,
-      [answerKey]: !prevVisibility[answerKey],
-    }));
-  };
-
+export default function Questions({
+  answerVisibility = {},
+  onToggleAnswerVisibility = {},
+  favorites = {},
+  onToggleFavorite = {},
+  questions = {},
+}) {
   return (
     <StyledDiv>
       <CardContainer>
-        <Question>
-          <div>
-            <h1>Frage 1</h1>
-            <p>Was ist die Hauptstadt von Deutschland?</p>
-          </div>
-          <Button onClick={() => toggleAnswerVisibility("answer1")}>
-            {answerVisibility.answer1 ? "Hide Answer" : "Show Answer"}
-          </Button>
-          {answerVisibility.answer1 && (
+        {Object.keys(questions).map((key) => (
+          <Question key={key}>
             <div>
-              <h2>Antwort</h2>
-              <p>Die Hauptstadt von Deutschland ist Berlin.</p>
+              <h1>{questions[key].question}</h1>
+              <p>{questions[key].text}</p>
             </div>
-          )}
-        </Question>
-        <Question>
-          <div>
-            <h1>Frage 2</h1>
-            <p>Was ist die Hauptstadt von NRW?</p>
-          </div>
-          <Button onClick={() => toggleAnswerVisibility("answer2")}>
-            {answerVisibility.answer2 ? "Hide Answer" : "Show Answer"}
-          </Button>
-          {answerVisibility.answer2 && (
-            <div>
-              <h2>Antwort</h2>
-              <p>Die Hauptstadt von NRW ist Düsseldorf.</p>
-            </div>
-          )}
-        </Question>
-        <Question>
-          <div>
-            <h1>Frage 3</h1>
-            <p>Was ist die Hauptstadt von China?</p>
-          </div>
-          <Button onClick={() => toggleAnswerVisibility("answer3")}>
-            {answerVisibility.answer3 ? "Hide Answer" : "Show Answer"}
-          </Button>
-          {answerVisibility.answer3 && (
-            <div>
-              <h2>Antwort</h2>
-              <p>Die Hauptstadt von China ist Peking.</p>
-            </div>
-          )}
-        </Question>
+            <FavoriteButton
+              favorite={favorites[key]}
+              onToggleFavorite={() => onToggleFavorite(key)}
+            />
+            <Button onClick={() => onToggleAnswerVisibility(key)}>
+              {answerVisibility[key] ? "Hide Answer" : "Show Answer"}
+            </Button>
+            {answerVisibility[key] && (
+              <div>
+                <h2>Antwort</h2>
+                <p>{questions[key].answer}</p>
+              </div>
+            )}
+          </Question>
+        ))}
       </CardContainer>
     </StyledDiv>
   );
