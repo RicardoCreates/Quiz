@@ -1,13 +1,14 @@
-import Questions from "@/components/Questions";
 import styled from "styled-components";
+import QuizPage from "./questions/[id]";
 
-export default function Quiz() {
+export default function Quiz({ questions }) {
+  console.log("Questions:", questions);
   return (
     <>
       <StyledDiv>
         <SytledHeadline>Questions</SytledHeadline>
       </StyledDiv>
-      <Questions />
+      <QuizPage questions={questions} />
     </>
   );
 }

@@ -1,29 +1,16 @@
 import Navbar from "@/components/Navbar";
 import GlobalStyle from "../styles";
 import Footer from "@/components/Footer";
-import useLocalStorageState from "use-local-storage-state";
-
-const initalFavorite = Array(10).fill(false);
+import { initialQuestions } from "@/lib/db";
+import { useState } from "react";
 
 export default function App({ Component, pageProps }) {
-  const [favorites, setFavorites] = useLocalStorageState("favorites", {
-    defaultValue: initalFavorite,
-  });
-
-  function handleToggleFavorite(id) {
-    setFavorites(
-      favorites.map((favorite, index) => (index === id ? !favorite : favorite))
-    );
-  }
+  const [questions, setQuestions] = useState(initialQuestions);
 
   return (
     <>
       <GlobalStyle />
-      <Component
-        {...pageProps}
-        onToggleFavorite={handleToggleFavorite}
-        favorites={favorites}
-      />
+      <Component {...pageProps} questions={questions} />
       <Navbar />
       <Footer />
     </>
