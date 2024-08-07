@@ -2,8 +2,11 @@ import FavoriteButton from "@/components/Favorite/FavoriteButton";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import styled from "styled-components";
+import { useEffect } from "react";
 
 export default function QuizPage({ questions }) {
+  console.log("Questions:", questions);
+
   const router = useRouter();
   const { id } = router.query;
   const [answerVisibility, setIsAnswerVisibility] = useState({
@@ -12,9 +15,23 @@ export default function QuizPage({ questions }) {
     answer3: false,
   });
 
+  // const foundQuestion = questions.find((question) => question.id === id);
+  // if (!foundQuestion) return null;
+
+  useEffect(() => {
+    // Handle the case where id is not yet available
+    if (id) {
+      console.log("ID is available:", id);
+    } else {
+      console.log("ID is not available yet");
+    }
+  }, [id]);
+
   const foundQuestion = questions.find((question) => question.id === id);
 
-  if (!foundQuestion) return null;
+  if (!id) return <div>Loading...</div>; // Show a loading state if ID is not available yet
+
+  if (!foundQuestion) return <div>No question found.</div>;
 
   const toggleAnswerVisibility = (answerKey) => {
     setIsAnswerVisibility((prevVisibility) => ({
