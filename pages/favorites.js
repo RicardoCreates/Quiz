@@ -6,9 +6,6 @@ export default function Favorites() {
       <StyledDiv>
         <h1>Favorites</h1>
       </StyledDiv>
-      <StyledDiv>
-        <h2>New Test</h2>
-      </StyledDiv>
     </StyledContainer>
   );
 }
